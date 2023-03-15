@@ -1,0 +1,213 @@
+
+# 1.7s user time, 80ms system time, 26.78M rss, 221.32M vsz
+# Current date: Sun Jul 31 09:56:45 2022
+# Hostname: server.lotterymasterpro.com
+# Files: /var/lib/mysql/slow-query.log
+# Overall: 6.88k total, 9 unique, 0.19 QPS, 0.24x concurrency ____________
+# Time range: 2022-07-30T18:23:17 to 2022-07-31T04:26:43
+# Attribute          total     min     max     avg     95%  stddev  median
+# ============     ======= ======= ======= ======= ======= ======= =======
+# Exec time          8546s      1s      8s      1s      2s   265ms      1s
+# Lock time             1s    44us    92ms   149us   185us     1ms   119us
+# Rows sent         29.92M       0  10.45k   4.46k  10.29k   5.05k   97.36
+# Rows examine       1.10G 143.53k 434.12k 167.47k 174.27k  31.51k 158.07k
+# Query size         1.68M     146     427  256.17  420.77  119.40  223.14
+
+# Profile
+# Rank Query ID                       Response time   Calls R/Call V/M   I
+# ==== ============================== =============== ===== ====== ===== =
+#    1 0x6A2080374E5C2A341AAD04E81... 3627.8235 42.4%  2909 1.2471  0.03 SELECT lottery_number_table
+#    2 0x0ABF96A982ABBC85D27F7E6C1... 2782.8765 32.6%  2180 1.2765  0.04 SELECT lottery_number_table
+#    3 0xB499AA736C750ACA04FF5B954... 1536.2086 18.0%  1324 1.1603  0.01 SELECT lottery_number_table
+#    4 0x8526B85417D1CAEFF92072FBD...  418.8759  4.9%   361 1.1603  0.01 SELECT lottery_number_table
+#    5 0x30F47A6028A7712B4EEEC9BA4...  102.1026  1.2%    33 3.0940  1.22 INSERT SELECT fb_video_views
+#    6 0x2A28E8E173DE53852838D1432...   68.3238  0.8%    62 1.1020  0.01 UPDATE user_info_table
+# MISC 0xMISC                            9.9024  0.1%     6 1.6504   0.0 <3 ITEMS>
+
+# Query 1: 0.08 QPS, 0.10x concurrency, ID 0x6A2080374E5C2A341AAD04E812F307F7 at byte 39291
+# Scores: V/M = 0.03
+# Time range: 2022-07-30T18:23:18 to 2022-07-31T04:26:43
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         42    2909
+# Exec time     42   3628s      1s      2s      1s      2s   190ms      1s
+# Lock time     27   288ms    44us   312us    98us   131us    22us    93us
+# Rows sent     99  29.68M  10.45k  10.45k  10.45k  10.45k       0  10.45k
+# Rows examine  44 497.37M 175.08k 175.08k 175.08k 175.08k       0 175.08k
+# Query size    24 420.44k     148     148     148     148       0     148
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ################################################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC\G
+
+# Query 2: 0.06 QPS, 0.08x concurrency, ID 0x0ABF96A982ABBC85D27F7E6C18C09E2A at byte 307619
+# Scores: V/M = 0.04
+# Time range: 2022-07-30T18:23:17 to 2022-07-31T04:26:39
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         31    2180
+# Exec time     32   2783s      1s      4s      1s      2s   220ms      1s
+# Lock time     34   353ms    77us   909us   161us   214us    37us   152us
+# Rows sent      0  74.10k       0      92   34.81   80.10   27.65   31.70
+# Rows examine  31 350.55M 164.63k 164.72k 164.66k 158.07k       0 158.07k
+# Query size    52 909.04k     427     427     427     427       0     427
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ################################################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '97' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >00 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC\G
+
+# Query 3: 0.04 QPS, 0.04x concurrency, ID 0xB499AA736C750ACA04FF5B9549228484 at byte 1577797
+# Scores: V/M = 0.01
+# Time range: 2022-07-30T18:27:50 to 2022-07-31T04:26:43
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         19    1324
+# Exec time     17   1536s      1s      2s      1s      1s   115ms      1s
+# Lock time     16   172ms    52us   289us   130us   159us    22us   131us
+# Rows sent      0 129.30k     100     100     100     100       0     100
+# Rows examine  16 185.83M 143.72k 143.72k 143.72k 143.72k       0 143.72k
+# Query size    16 289.62k     224     224     224     224       0     224
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ################################################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY SUBSTR(LotteryNumber,1,2) HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC, SUBSTR(LotteryNumber,1,2) DESC, SUBSTR(LotteryNumber,2,2) DESC\G
+
+# Query 4: 0.01 QPS, 0.01x concurrency, ID 0x8526B85417D1CAEFF92072FBDCBCB11F at byte 1694328
+# Scores: V/M = 0.01
+# Time range: 2022-07-30T18:32:33 to 2022-07-31T04:26:43
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count          5     361
+# Exec time      4    419s      1s      1s      1s      1s   112ms      1s
+# Lock time      4    48ms    62us   309us   132us   159us    24us   131us
+# Rows sent      0  35.25k     100     100     100     100       0     100
+# Rows examine   4  50.67M 143.72k 143.72k 143.72k 143.72k       0 143.72k
+# Query size     4  77.91k     221     221     221     221       0     221
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ################################################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY SUBSTR(LotteryNumber,1,2) HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) ASC, SUBSTR(LotteryNumber,1,2) ASC, SUBSTR(LotteryNumber,2,2) ASC\G
+
+# Query 5: 0.00 QPS, 0.00x concurrency, ID 0x30F47A6028A7712B4EEEC9BA4A01FFBB at byte 1942558
+# Scores: V/M = 1.22
+# Time range: 2022-07-30T18:35:09 to 2022-07-31T03:54:38
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count          0      33
+# Exec time      1    102s      1s      8s      3s      7s      2s      2s
+# Lock time      0     4ms    64us   148us   113us   138us    21us   108us
+# Rows sent      0       0       0       0       0       0       0       0
+# Rows examine   1  12.87M 398.87k 399.72k 399.35k 399.43k     435 380.41k
+# Query size     0   5.63k     173     175  174.82  174.84       1  174.84
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ################################################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'fb_video_views'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`fb_video_views`\G
+INSERT INTO fb_video_views (videoId, userId) SELECT '66', '10131' WHERE NOT EXISTS (SELECT id FROM fb_video_views 
+        WHERE `videoId`='66' AND `userId`='10131' LIMIT 1)\G
+
+# Query 6: 0.00 QPS, 0.00x concurrency, ID 0x2A28E8E173DE53852838D14322B12DEC at byte 1828011
+# Scores: V/M = 0.01
+# Time range: 2022-07-30T18:41:57 to 2022-07-31T04:26:06
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count          0      62
+# Exec time      0     68s      1s      1s      1s      1s    89ms      1s
+# Lock time     15   164ms    50us    92ms     3ms   152us    14ms    89us
+# Rows sent      0       0       0       0       0       0       0       0
+# Rows examine   2  26.26M 432.19k 434.12k 433.64k 419.40k       0 419.40k
+# Query size     0  15.74k     260     260     260     260       0     260
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s  ################################################################
+#  10s+
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'user_info_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`user_info_table`\G
+UPDATE user_info_table SET Token='dEOQxjTDR-yNqqVeN4ZzgK:APA91bGNV2KGOapzvR4udtDjx1WOI4QNPoiX2VDp2pXP2RDf0Dq6pHo-y30zBugvOxYsaCfCe5W_PveJsvTDTwJCUFMOHCyE9fZ_vHd29oYzbcZOwhj6TD6MQB2YVAcsnqvMUTRg1eej', ActiveStatus='1', country_code='IN' WHERE Phone='9749582264'\G
+# Converted for EXPLAIN
+# EXPLAIN /*!50100 PARTITIONS*/
+select  Token='dEOQxjTDR-yNqqVeN4ZzgK:APA91bGNV2KGOapzvR4udtDjx1WOI4QNPoiX2VDp2pXP2RDf0Dq6pHo-y30zBugvOxYsaCfCe5W_PveJsvTDTwJCUFMOHCyE9fZ_vHd29oYzbcZOwhj6TD6MQB2YVAcsnqvMUTRg1eej', ActiveStatus='1', country_code='IN' from user_info_table where  Phone='9749582264'\G

@@ -1,0 +1,9 @@
+{
+   "apache_port" : "81",
+   "apache_port_ip" : "127.0.0.1",
+   "apache_ssl_port" : "444",
+   "apache_ssl_port_ip" : "127.0.0.1",
+   "client_max_body_size" : "128m",
+   "server_names_hash_bucket_size" : 128,
+   "server_names_hash_max_size" : 1024
+,"client_max_body_size": "500m","client_max_body_size": "5000m"}

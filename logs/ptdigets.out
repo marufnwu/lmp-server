@@ -1,0 +1,115 @@
+
+# 600ms user time, 90ms system time, 26.30M rss, 220.82M vsz
+# Current date: Mon Jan 16 15:14:54 2023
+# Hostname: server.lotterymasterpro.com
+# Files: /var/lib/mysql/server-slow.log
+# Overall: 2.07k total, 8 unique, 0.03 QPS, 0.32x concurrency ____________
+# Time range: 2023-01-15T11:48:29 to 2023-01-16T07:54:09
+# Attribute          total     min     max     avg     95%  stddev  median
+# ============     ======= ======= ======= ======= ======= ======= =======
+# Exec time         23388s     10s     30s     11s     13s      1s     11s
+# Lock time            16s    42us     16s     8ms   131us   335ms    89us
+# Rows sent          3.25M      20 1006.57k   1.61k   19.46  36.82k   19.46
+# Rows examine     473.33M 207.49k 1006.64k 234.04k 233.54k  29.78k 222.42k
+# Query size       222.64k      51     264  110.08  107.34   17.36  107.34
+
+# Profile
+# Rank Query ID                            Response time    Calls R/Call  
+# ==== =================================== ================ ===== ======= 
+#    1 0xED354252EA469326E8EA3D78D8C92A41  22660.9880 96.9%  2007 11.2910  0.09 SELECT lottery_number_table
+#    2 0x5EDF425ECFEC9D9B3A07E481C44CA9CD    371.6975  1.6%    35 10.6199  0.04 SELECT lottery_number_table
+#    3 0x5EF2A44590F4D8BC28CD695FE388AF93    189.8760  0.8%    17 11.1692  0.08 SELECT lottery_number_table
+# MISC 0xMISC                                165.2930  0.7%    12 13.7744   0.0 <5 ITEMS>
+
+# Query 1: 0.03 QPS, 0.31x concurrency, ID 0xED354252EA469326E8EA3D78D8C92A41 at byte 477943
+# This item is included in the report because it matches --limit.
+# Scores: V/M = 0.09
+# Time range: 2023-01-15T11:48:29 to 2023-01-16T07:54:09
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count         96    2007
+# Exec time     96  22661s     10s     16s     11s     13s      1s     11s
+# Lock time      2   353ms    42us    83ms   175us   125us     2ms    89us
+# Rows sent      1  39.20k      20      20      20      20       0      20
+# Rows examine  96 457.46M 233.20k 239.06k 233.40k 233.54k   2.93k 222.42k
+# Query size    94 211.00k     107     110  107.66  107.34    1.50  102.22
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s
+#  10s+  ################################################################
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *, SUM(1) AS count FROM lottery_number_table GROUP BY LotteryNumber ORDER BY count  DESC LIMIT 20, 20\G
+
+# Query 2: 0.01 QPS, 0.06x concurrency, ID 0x5EDF425ECFEC9D9B3A07E481C44CA9CD at byte 316345
+# This item is included in the report because it matches --outliers.
+# Scores: V/M = 0.04
+# Time range: 2023-01-15T12:03:35 to 2023-01-15T13:44:57
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count          1      35
+# Exec time      1    372s     10s     12s     11s     11s   621ms     10s
+# Lock time      0     3ms    63us   148us    98us   131us    22us    98us
+# Rows sent      1  55.47k   1.58k   1.58k   1.58k   1.53k       0   1.53k
+# Rows examine   1   7.20M 210.66k 210.79k 210.77k 201.74k       0 201.74k
+# Query size     2   4.99k     146     146     146     146       0     146
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s
+#  10s+  ################################################################
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *, COUNT(WinDate),COUNT(WinTime) FROM lottery_number_table GROUP BY WinDate, WinTime ORDER BY STR_TO_DATE(WinDate,'%d-%m-%Y') DESC, WinTime\G
+
+# Query 3: 0.00 QPS, 0.04x concurrency, ID 0x5EF2A44590F4D8BC28CD695FE388AF93 at byte 553981
+# This item is included in the report because it matches --outliers.
+# Scores: V/M = 0.08
+# Time range: 2023-01-15T12:14:06 to 2023-01-15T13:42:04
+# Attribute    pct   total     min     max     avg     95%  stddev  median
+# ============ === ======= ======= ======= ======= ======= ======= =======
+# Count          0      17
+# Exec time      0    190s     10s     14s     11s     13s   944ms     11s
+# Lock time      0     3ms   125us   297us   179us   214us    36us   167us
+# Rows sent      0  11.57k     697     698  697.12  685.39       0  685.39
+# Rows examine   0   3.45M 207.49k 207.62k 207.60k 201.74k       0 201.74k
+# Query size     1   4.38k     264     264     264     264       0     264
+# String:
+# Databases    lotterym_lottery_master_pro
+# Hosts        localhost
+# Users        lotterym_lottery_master_pro
+# Query_time distribution
+#   1us
+#  10us
+# 100us
+#   1ms
+#  10ms
+# 100ms
+#    1s
+#  10s+  ################################################################
+# Tables
+#    SHOW TABLE STATUS FROM `lotterym_lottery_master_pro` LIKE 'lottery_number_table'\G
+#    SHOW CREATE TABLE `lotterym_lottery_master_pro`.`lottery_number_table`\G
+# EXPLAIN /*!50100 PARTITIONS*/
+SELECT *, SUM(CASE WHEN  DATEDIFF(CURDATE(), STR_TO_DATE(WinDate, '%d-%m-%Y'))<365 AND WinType='4th' OR WinType='3rd' THEN 1 ELSE 0 END ) AS App FROM `lottery_number_table`  GROUP BY LotteryNumber HAVING LENGTH(LotteryNumber)=4 AND App=0 ORDER BY LotteryNumber Asc\G

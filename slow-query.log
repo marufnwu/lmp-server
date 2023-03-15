@@ -1,0 +1,317 @@
+/usr/sbin/mysqld, Version: 5.7.37 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/lib/mysql/mysql.sock
+Time                 Id Command    Argument
+# Time: 2022-07-30T18:23:17.958312Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74106561
+# Query_time: 1.651653  Lock_time: 0.000159 Rows_sent: 37  Rows_examined: 168618
+use lotterym_lottery_master_pro;
+SET timestamp=1659205397;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '59' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >50 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:23:18.060152Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74106568
+# Query_time: 1.409263  Lock_time: 0.000111 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205398;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:23:33.464845Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74106914
+# Query_time: 1.073038  Lock_time: 0.000094 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205413;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:23:43.608153Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74107120
+# Query_time: 1.030680  Lock_time: 0.000233 Rows_sent: 37  Rows_examined: 168618
+SET timestamp=1659205423;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '59' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >50 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:23:45.884051Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74107172
+# Query_time: 1.160769  Lock_time: 0.000077 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205425;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:23:46.069390Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74107173
+# Query_time: 1.191754  Lock_time: 0.000174 Rows_sent: 9  Rows_examined: 168590
+SET timestamp=1659205426;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '77' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >70 AND SUBSTRING(LotteryNumber, -2, 2) <80 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:24:17.625402Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74107749
+# Query_time: 1.031037  Lock_time: 0.000107 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205457;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:24:20.091214Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74107799
+# Query_time: 1.226349  Lock_time: 0.000137 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205460;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:24:20.403301Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74107808
+# Query_time: 1.286196  Lock_time: 0.000199 Rows_sent: 37  Rows_examined: 168618
+SET timestamp=1659205460;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '59' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >50 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:24:34.099001Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74108138
+# Query_time: 1.074951  Lock_time: 0.000185 Rows_sent: 37  Rows_examined: 168618
+SET timestamp=1659205474;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '59' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >50 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:25:10.422642Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74108876
+# Query_time: 1.021605  Lock_time: 0.000088 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205510;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:25:43.569393Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74109527
+# Query_time: 1.012582  Lock_time: 0.000087 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205543;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:26:08.931513Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74110046
+# Query_time: 1.099590  Lock_time: 0.000082 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205568;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:26:12.564252Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74110098
+# Query_time: 1.075159  Lock_time: 0.000169 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205572;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:26:45.528058Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74110672
+# Query_time: 1.091996  Lock_time: 0.000065 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205605;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:26:46.302059Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74110679
+# Query_time: 1.089571  Lock_time: 0.000195 Rows_sent: 15  Rows_examined: 168596
+SET timestamp=1659205606;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '78' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >79 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:26:47.446578Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74110702
+# Query_time: 1.201367  Lock_time: 0.000184 Rows_sent: 2  Rows_examined: 168583
+SET timestamp=1659205607;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '31' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >10 AND SUBSTRING(LotteryNumber, -2, 2) <15 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:27:07.965336Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74111101
+# Query_time: 1.026326  Lock_time: 0.000143 Rows_sent: 7  Rows_examined: 168588
+SET timestamp=1659205627;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '50' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >90 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:27:34.049058Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74111622
+# Query_time: 1.169616  Lock_time: 0.000175 Rows_sent: 37  Rows_examined: 168618
+SET timestamp=1659205654;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '59' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >50 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:27:34.108220Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74111625
+# Query_time: 1.095060  Lock_time: 0.000138 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205654;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:27:50.849813Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74111944
+# Query_time: 1.049557  Lock_time: 0.000154 Rows_sent: 100  Rows_examined: 147170
+SET timestamp=1659205670;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY SUBSTR(LotteryNumber,1,2) HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC, SUBSTR(LotteryNumber,1,2) DESC, SUBSTR(LotteryNumber,2,2) DESC;
+# Time: 2022-07-30T18:27:50.855248Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74111949
+# Query_time: 1.117330  Lock_time: 0.000161 Rows_sent: 4  Rows_examined: 168585
+SET timestamp=1659205670;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '50' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >30 AND SUBSTRING(LotteryNumber, -2, 2) <39 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:27:51.249848Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74111957
+# Query_time: 1.209622  Lock_time: 0.000131 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205671;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:27:57.906849Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74112096
+# Query_time: 1.119908  Lock_time: 0.000057 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205677;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:28:10.675421Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74112324
+# Query_time: 1.050145  Lock_time: 0.000109 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205690;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:28:15.388795Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74112405
+# Query_time: 1.128191  Lock_time: 0.000093 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205695;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:28:40.398595Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74112920
+# Query_time: 1.026146  Lock_time: 0.000063 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205720;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:29:20.917086Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74113711
+# Query_time: 1.040753  Lock_time: 0.000121 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205760;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:29:27.391742Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74113841
+# Query_time: 1.020311  Lock_time: 0.000087 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205767;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:29:40.949125Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74114041
+# Query_time: 1.094741  Lock_time: 0.000079 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205780;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:29:41.472634Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74114060
+# Query_time: 1.042391  Lock_time: 0.000103 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205781;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:29:53.835942Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74114287
+# Query_time: 1.138345  Lock_time: 0.000103 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205793;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:29:54.762820Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74114301
+# Query_time: 1.112430  Lock_time: 0.000095 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205794;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:30:13.138704Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74114621
+# Query_time: 1.008332  Lock_time: 0.000143 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205813;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:30:23.923670Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74114793
+# Query_time: 1.111774  Lock_time: 0.000097 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205823;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:30:43.173225Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74115126
+# Query_time: 1.001650  Lock_time: 0.000107 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205843;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:30:54.603213Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74115338
+# Query_time: 1.202194  Lock_time: 0.000181 Rows_sent: 37  Rows_examined: 168618
+SET timestamp=1659205854;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '12' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >00 AND SUBSTRING(LotteryNumber, -2, 2) <50 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:30:59.245079Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74115427
+# Query_time: 1.081145  Lock_time: 0.000096 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205859;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:31:07.304707Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74115617
+# Query_time: 1.135503  Lock_time: 0.000105 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205867;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:31:25.938453Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74115954
+# Query_time: 1.055825  Lock_time: 0.000106 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205885;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:31:49.010159Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74116402
+# Query_time: 1.063018  Lock_time: 0.000177 Rows_sent: 5  Rows_examined: 168586
+SET timestamp=1659205909;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '16' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >09 AND SUBSTRING(LotteryNumber, -2, 2) <20 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:31:54.721739Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74116491
+# Query_time: 1.014409  Lock_time: 0.000150 Rows_sent: 5  Rows_examined: 168586
+SET timestamp=1659205914;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '16' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >09 AND SUBSTRING(LotteryNumber, -2, 2) <20 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <7 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-07-30T18:32:18.692699Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74116942
+# Query_time: 1.153719  Lock_time: 0.000091 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205938;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:32:18.736261Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74116953
+# Query_time: 1.003133  Lock_time: 0.000106 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205938;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:32:33.090931Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74117192
+# Query_time: 1.088801  Lock_time: 0.000119 Rows_sent: 10699  Rows_examined: 179280
+SET timestamp=1659205953;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-07-30T18:32:33.709750Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74117197
+# Query_time: 1.070649  Lock_time: 0.000151 Rows_sent: 100  Rows_examined: 147170
+SET timestamp=1659205953;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY SUBSTR(LotteryNumber,1,2) HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) ASC, SUBSTR(LotteryNumber,1,2) ASC, SUBSTR(LotteryNumber,2,2) ASC;
+# Time: 2022-07-30T18:32:33.807693Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 74117199
+# Query_time: 1.005059  Lock_time: 0.000145 Rows_sent: 100  Rows_examined: 147170
+SET timestamp=1659205953;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY SUBSTR(LotteryNumber,1,2) HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) ASC, SUBSTR(LotteryNumber,1,2) ASC, SUBSTR(LotteryNumber,2,2) ASC;

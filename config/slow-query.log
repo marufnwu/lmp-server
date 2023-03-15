@@ -1,0 +1,207 @@
+# Time: 2022-03-19T15:05:32.430288Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 408934
+# Query_time: 2.122544  Lock_time: 0.000110 Rows_sent: 10  Rows_examined: 86217
+SET timestamp=1647702332;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%7132%' ORDER BY Id DESC;
+# Time: 2022-03-19T15:05:32.470259Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 408940
+# Query_time: 2.042008  Lock_time: 0.000100 Rows_sent: 11  Rows_examined: 86219
+SET timestamp=1647702332;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%9309%' ORDER BY Id DESC;
+# Time: 2022-03-19T15:05:32.479280Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 408946
+# Query_time: 1.790865  Lock_time: 0.000087 Rows_sent: 12  Rows_examined: 86221
+SET timestamp=1647702332;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%5632%' ORDER BY Id DESC;
+# Time: 2022-03-19T15:05:32.492017Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 408945
+# Query_time: 1.828020  Lock_time: 0.000131 Rows_sent: 12  Rows_examined: 86221
+SET timestamp=1647702332;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%4616%' ORDER BY Id DESC;
+# Time: 2022-03-19T16:10:56.219426Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 509127
+# Query_time: 2.434702  Lock_time: 0.000016 Rows_sent: 0  Rows_examined: 0
+use sikderit_lmpclass;
+SET timestamp=1647706256;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (6, '6de1cb0b6a49f06cbb55928a1ee0ad3e32f0cebd', 1647706253);
+# Time: 2022-03-19T16:10:56.219556Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 509132
+# Query_time: 1.703088  Lock_time: 0.000111 Rows_sent: 13  Rows_examined: 86223
+use lotterym_lottery_master_pro;
+SET timestamp=1647706256;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%5046%' ORDER BY Id DESC;
+# Time: 2022-03-19T16:10:56.274977Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 509142
+# Query_time: 1.156384  Lock_time: 0.000108 Rows_sent: 16  Rows_examined: 86229
+SET timestamp=1647706256;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%9056%' ORDER BY Id DESC;
+# Time: 2022-03-19T16:10:56.276422Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 509135
+# Query_time: 1.649276  Lock_time: 0.000076 Rows_sent: 9  Rows_examined: 86215
+SET timestamp=1647706256;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%7869%' ORDER BY Id DESC;
+# Time: 2022-03-19T16:23:26.800306Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 522787
+# Query_time: 2.405821  Lock_time: 0.000018 Rows_sent: 0  Rows_examined: 0
+use sikderit_lmpclass;
+SET timestamp=1647707006;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (6, 'afeee4f0426407124a2661f77db1eefa708c3477', 1647707004);
+# Time: 2022-03-19T16:31:55.050956Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 532221
+# Query_time: 1.821096  Lock_time: 0.000016 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647707515;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (6, 'edf36beea1eb07a85484fa31bdf54b503ea994f6', 1647707513);
+# Time: 2022-03-19T17:04:32.491407Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 566394
+# Query_time: 1.118104  Lock_time: 0.000156 Rows_sent: 8  Rows_examined: 103171
+use lotterym_lottery_master_pro;
+SET timestamp=1647709472;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '88' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >20 AND SUBSTRING(LotteryNumber, -2, 2) <29 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-19T17:34:07.373432Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 595683
+# Query_time: 1.068188  Lock_time: 0.000101 Rows_sent: 10230  Rows_examined: 113393
+SET timestamp=1647711247;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-03-19T17:37:10.204577Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 598851
+# Query_time: 1.339413  Lock_time: 0.000021 Rows_sent: 0  Rows_examined: 0
+use sikderit_lmpclass;
+SET timestamp=1647711430;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (6, '24318715ec2946adc30092d6bf36f91770746c87', 1647711428);
+# Time: 2022-03-20T01:26:40.467839Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 718824
+# Query_time: 1.008088  Lock_time: 0.000072 Rows_sent: 10230  Rows_examined: 113393
+use lotterym_lottery_master_pro;
+SET timestamp=1647739600;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-03-20T01:26:40.493461Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 718826
+# Query_time: 1.011460  Lock_time: 0.000116 Rows_sent: 10230  Rows_examined: 113393
+SET timestamp=1647739600;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-03-20T02:19:50.863093Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 769375
+# Query_time: 1.044198  Lock_time: 0.000117 Rows_sent: 5  Rows_examined: 103168
+SET timestamp=1647742790;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '72' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >60 AND SUBSTRING(LotteryNumber, -2, 2) <69 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-20T02:54:41.318340Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 813978
+# Query_time: 4.941577  Lock_time: 0.000016 Rows_sent: 0  Rows_examined: 0
+use sikderit_lmpclass;
+SET timestamp=1647744881;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (6, 'b1be4e8df3c9aa371df7f10df7257fa3ad5a1271', 1647744876);
+# Time: 2022-03-20T03:26:39.730996Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 860246
+# Query_time: 1.005567  Lock_time: 0.000134 Rows_sent: 13  Rows_examined: 103176
+use lotterym_lottery_master_pro;
+SET timestamp=1647746799;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '01' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >00 AND SUBSTRING(LotteryNumber, -2, 2) <20 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-20T04:05:47.841415Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 917663
+# Query_time: 1.066705  Lock_time: 0.000203 Rows_sent: 70  Rows_examined: 103233
+SET timestamp=1647749147;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '00' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >00 AND SUBSTRING(LotteryNumber, -2, 2) <99 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-20T04:13:59.548532Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 929719
+# Query_time: 1.032503  Lock_time: 0.000108 Rows_sent: 10230  Rows_examined: 113393
+SET timestamp=1647749639;
+SELECT *, COUNT(LotteryNumber) FROM lottery_number_table GROUP BY LotteryNumber HAVING (COUNT(LotteryNumber) > 1) ORDER BY COUNT(LotteryNumber) DESC;
+# Time: 2022-03-20T04:14:34.805134Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 930780
+# Query_time: 1.083518  Lock_time: 0.000141 Rows_sent: 2  Rows_examined: 103165
+SET timestamp=1647749674;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '01' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >85 AND SUBSTRING(LotteryNumber, -2, 2) <89 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-20T04:36:49.401841Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 963894
+# Query_time: 1.067875  Lock_time: 0.000108 Rows_sent: 40  Rows_examined: 103203
+SET timestamp=1647751009;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '08' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >00 AND SUBSTRING(LotteryNumber, -2, 2) <49 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-20T05:18:29.846073Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 1025173
+# Query_time: 1.000959  Lock_time: 0.000167 Rows_sent: 31  Rows_examined: 103194
+SET timestamp=1647753509;
+SELECT *
+                FROM lottery_number_table GROUP BY LotteryNumber 
+                HAVING SUBSTRING(LotteryNumber, -4, 2) = '61' 
+                AND SUBSTRING(LotteryNumber, -2, 2) >00 AND SUBSTRING(LotteryNumber, -2, 2) <49 
+                AND COUNT(CASE WHEN DATEDIFF(CURDATE(),STR_TO_DATE(WinDate, '%d-%m-%Y')) <10 THEN 0 END)=0
+                AND LENGTH(LotteryNumber)=4
+                ORDER BY LotteryNumber ASC;
+# Time: 2022-03-20T05:29:47.946261Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 1042372
+# Query_time: 2.340050  Lock_time: 0.000016 Rows_sent: 0  Rows_examined: 0
+use sikderit_lmpclass;
+SET timestamp=1647754187;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (99, '399f06e5d918059a75df7c92450710a2620fb8fa', 1647754185);
+# Time: 2022-03-20T05:31:26.914328Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 1045010
+# Query_time: 5.150030  Lock_time: 0.000017 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647754286;
+INSERT  INTO views (`video_id`, `fingerprint`, `time`)  VALUES (25, '1af773739779e9e7a412cad5bf333b38fa3b900e', 1647754281);
+# Time: 2022-03-20T06:23:28.577634Z
+# User@Host: sikderit_lmpclass[sikderit_lmpclass] @ localhost []  Id: 1118048
+# Query_time: 2.896301  Lock_time: 0.000016 Rows_sent: 0  Rows_examined: 1
+SET timestamp=1647757408;
+UPDATE users SET `active_time` = active_time+6 WHERE  id = 1;
+# Time: 2022-03-20T06:23:28.704924Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 1118062
+# Query_time: 2.716464  Lock_time: 0.000104 Rows_sent: 11  Rows_examined: 86219
+use lotterym_lottery_master_pro;
+SET timestamp=1647757408;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%6868%' ORDER BY Id DESC;
+# Time: 2022-03-20T06:23:28.729174Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 1118074
+# Query_time: 2.164075  Lock_time: 0.000098 Rows_sent: 851  Rows_examined: 87899
+SET timestamp=1647757408;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE (SUBSTR(LotteryNumber,2,2)='44' AND (LENGTH(LotteryNumber) > 4)) OR (SUBSTR(LotteryNumber,1,2)='44' AND (LENGTH(LotteryNumber) < 5)) ORDER BY Id DESC;
+# Time: 2022-03-20T06:23:28.730497Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 1118063
+# Query_time: 2.738373  Lock_time: 0.000115 Rows_sent: 804  Rows_examined: 87805
+SET timestamp=1647757408;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE (SUBSTR(LotteryNumber,2,2)='43' AND (LENGTH(LotteryNumber) > 4)) OR (SUBSTR(LotteryNumber,1,2)='43' AND (LENGTH(LotteryNumber) < 5)) ORDER BY Id DESC;
+# Time: 2022-03-20T06:23:28.755456Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 1118068
+# Query_time: 2.266952  Lock_time: 0.000159 Rows_sent: 9  Rows_examined: 86215
+SET timestamp=1647757408;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%7175%' ORDER BY Id DESC;
+# Time: 2022-03-20T06:23:28.756449Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 1118053
+# Query_time: 2.984771  Lock_time: 0.000109 Rows_sent: 12  Rows_examined: 86221
+SET timestamp=1647757408;
+SELECT lottery_number_table.*, lottery_result_time.time FROM lottery_number_table  INNER JOIN lottery_result_time ON lottery_number_table.SlotId =  lottery_result_time.id WHERE LotteryNumber LIKE '%9921%' ORDER BY Id DESC;

@@ -1,0 +1,15 @@
+/home/lotterymasterpro/public_html/db/db.json
+
+mongoimport --db=lmp --collection=result_view   mongodb://localhost:27017 /home/lotterymasterpro/public_html/db/newdata.json --jsonArray
+
+
+208880 - total
+69627 - 1
+
+db.lottery_numbers.aggregate([ {$group:{_id: '$WinDate'}}, {$project: {
+      date: {
+         $dateFromString: {
+            dateString: '$_id',format:"%d-%m-%Y"
+         }
+      }
+   }},{$sort:{date:1}}])

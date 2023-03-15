@@ -1,0 +1,54 @@
+/usr/sbin/mysqld, Version: 5.7.37 (MySQL Community Server (GPL)). started with:
+Tcp port: 3306  Unix socket: /var/lib/mysql/mysql.sock
+Time                 Id Command    Argument
+# Time: 2022-03-19T13:15:00.215366Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 231716
+# Query_time: 1.237006  Lock_time: 0.000100 Rows_sent: 0  Rows_examined: 0
+use lotterym_lottery_master_pro;
+SET timestamp=1647695700;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('685','','54','1.54','Unknown android version','SM-A715F','','samsung','420 dpi','2400 x 1080');
+# Time: 2022-03-19T13:15:00.877250Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 231731
+# Query_time: 1.618078  Lock_time: 0.000072 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695700;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('181593','','54','1.54','Android 8.1','RMX1811','','OPPO','320 dpi','1520 x 720');
+# Time: 2022-03-19T13:15:00.877312Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 231735
+# Query_time: 1.603779  Lock_time: 0.000059 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695700;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('156753','','49','1.49','Android 9','itel L6005','','itel','320 dpi','1560 x 720');
+# Time: 2022-03-19T13:15:00.877271Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 231733
+# Query_time: 1.607427  Lock_time: 0.000093 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695700;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('145331','','54','1.54','Unknown android version','V2069','','vivo','300 dpi','1600 x 720');
+# Time: 2022-03-19T13:15:11.556782Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 232180
+# Query_time: 1.420965  Lock_time: 0.000072 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695711;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('81233','','54','1.54','Android 8.1','vivo 1814','','vivo','320 dpi','1520 x 720');
+# Time: 2022-03-19T13:15:21.086546Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 232376
+# Query_time: 5.671376  Lock_time: 0.000044 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695721;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('47710','','54','1.54','Unknown android version','SM-A707F','','samsung','450 dpi','2400 x 1080');
+# Time: 2022-03-19T13:15:21.115718Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 232386
+# Query_time: 5.449611  Lock_time: 0.000059 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695721;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('19292','','54','1.54','Android 9','SM-J415F','','samsung','280 dpi','1480 x 720');
+# Time: 2022-03-19T13:15:21.115796Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 232395
+# Query_time: 5.083237  Lock_time: 0.000045 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695721;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('67459','','54','1.54','Android 10','M2010J19SI','','Xiaomi','440 dpi','2340 x 1080');
+# Time: 2022-03-19T13:15:21.115833Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 232399
+# Query_time: 4.999152  Lock_time: 0.000068 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695721;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('137161','','54','1.54','Android 8.1','SM-J710F','','samsung','320 dpi','720 x 1280');
+# Time: 2022-03-19T13:15:21.115856Z
+# User@Host: lotterym_lottery_master_pro[lotterym_lottery_master_pro] @ localhost []  Id: 232412
+# Query_time: 3.692467  Lock_time: 0.000106 Rows_sent: 0  Rows_examined: 0
+SET timestamp=1647695721;
+INSERT IGNORE INTO device_metadata (userId,phone,versionCode,versionName,androidVersion,device,deviceType,manufacturer,screenDensity,screenSize) VALUES('130521','','54','1.54','Unknown android version','vivo 1919','','vivo','480 dpi','2400 x 1080');

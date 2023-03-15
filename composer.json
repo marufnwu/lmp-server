@@ -1,0 +1,8 @@
+{
+    "require": {
+        "smalot/pdfparser": "^2.2",
+      "ext-json": "*",
+        "mongodb/mongodb": "^1.12",
+      "ext-mongodb": "*"
+    }
+}
